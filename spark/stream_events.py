@@ -33,12 +33,11 @@ scanner_line_events_writer = create_file_write_stream(scanner_line_events,
                                                 f"{GCS_STORAGE_PATH}/checkpoint/{SCANNER_LINE_EVENTS_TOPIC}"
                                                 )
 
-scanner_line_events_writer = create_file_write_stream(seller_line_events,
+seller_line_events_writer = create_file_write_stream(seller_line_events,
                                                    f"{GCS_STORAGE_PATH}/{SELLER_LINE_EVENTS_TOPIC}",
                                                    f"{GCS_STORAGE_PATH}/checkpoint/{SELLER_LINE_EVENTS_TOPIC}"
                                                    )
-
 scanner_line_events_writer.start()
-scanner_line_events_writer.start()
+seller_line_events_writer.start()
 
 spark.streams.awaitAnyTermination()
