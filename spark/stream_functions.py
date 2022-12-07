@@ -37,8 +37,6 @@ def process_stream(stream, stream_schema, topic):
 
 
 def create_file_write_stream(stream, storage_path, checkpoint_path, trigger="120 seconds", output_mode="append", file_format="parquet"):
-    print(storage_path)
-    print(checkpoint_path)
     write_stream = (stream
                     .writeStream
                     .format(file_format)
