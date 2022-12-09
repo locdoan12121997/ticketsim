@@ -2,3 +2,7 @@ export GCP_PROJECT_ID=elite-bird-367213
 export GCP_GCS_BUCKET=ticketsim
 export BIGQUERY_DATASET=ticketsim
 export AIRFLOW_UID=50000
+
+docker-compose up airflow-init
+docker-compose up
+docker-compose down

@@ -1,0 +1,24 @@
+[2022-12-08T08:05:03.148+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: streamify_dag.wait_in_scanner_line_create_external_table scheduled__2022-12-08T07:05:00+00:00 [queued]>
+[2022-12-08T08:05:03.166+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: streamify_dag.wait_in_scanner_line_create_external_table scheduled__2022-12-08T07:05:00+00:00 [queued]>
+[2022-12-08T08:05:03.167+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2022-12-08T08:05:03.167+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2022-12-08T08:05:03.167+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2022-12-08T08:05:03.198+0000] {taskinstance.py:1304} INFO - Executing <Task(BigQueryCreateExternalTableOperator): wait_in_scanner_line_create_external_table> on 2022-12-08 07:05:00+00:00
+[2022-12-08T08:05:03.208+0000] {standard_task_runner.py:55} INFO - Started process 4475 to run task
+[2022-12-08T08:05:03.221+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'streamify_dag', 'wait_in_scanner_line_create_external_table', 'scheduled__2022-12-08T07:05:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/ticketsim.py', '--cfg-path', '/tmp/tmpddt7_jh6']
+[2022-12-08T08:05:03.226+0000] {standard_task_runner.py:83} INFO - Job 9: Subtask wait_in_scanner_line_create_external_table
+[2022-12-08T08:05:03.366+0000] {task_command.py:389} INFO - Running <TaskInstance: streamify_dag.wait_in_scanner_line_create_external_table scheduled__2022-12-08T07:05:00+00:00 [running]> on host 58a4d8cc867b
+[2022-12-08T08:05:03.540+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=streamify_dag
+AIRFLOW_CTX_TASK_ID=wait_in_scanner_line_create_external_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-12-08T07:05:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-12-08T07:05:00+00:00
+[2022-12-08T08:05:03.543+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2022-12-08T08:05:03.544+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2022-12-08T08:05:04.099+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=streamify_dag, task_id=wait_in_scanner_line_create_external_table, execution_date=20221208T070500, start_date=20221208T080503, end_date=20221208T080504
+[2022-12-08T08:05:04.168+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-12-08T08:05:04.229+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

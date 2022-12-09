@@ -12,7 +12,7 @@ BIGQUERY_DATASET = os.environ.get('BIGQUERY_DATASET', 'ticketsim')
 EXECUTION_MONTH = '{{ logical_date.strftime("%-m") }}'
 EXECUTION_DAY = '{{ logical_date.strftime("%-d") }}'
 EXECUTION_HOUR = '{{ logical_date.strftime("%-H") }}'
-EXECUTION_DATETIME_STR = '{{ logical_date.strftime("%m%d%H") }}'
+EXECUTION_DATETIME_STR = '{{ logical_date.strftime("%m%d") }}'
 
 TABLE_MAP = { f"{event.upper()}_TABLE" : event for event in EVENTS}
 

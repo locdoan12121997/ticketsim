@@ -31,7 +31,9 @@ x-airflow-common:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
+    - ../dbt:/dbt
     - ~/.google/credentials/:/.google/credentials:ro
+    - ~/.dbt:/home/airflow/.dbt:ro
 
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:

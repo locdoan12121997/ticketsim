@@ -487,7 +487,7 @@ scanner_lines = [simpy.Resource(env, capacity=SCANNERS_PER_LINE) for _ in range(
 
 env.process(bus_arrival(env, seller_lines, scanner_lines))
 # env.process(create_clock(env))
-env.run(until=9000)
+env.run(until=15000)
 
 # main.mainloop()
 
