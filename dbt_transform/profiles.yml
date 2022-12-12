@@ -1,14 +1,14 @@
 dbt_transform:
   outputs:
-    dev:
-      dataset: ticketsim_prod
+    prod:
+      dataset: bq_ticketsim
       job_execution_timeout_seconds: 300
       job_retries: 1
-      keyfile: ~/.google/credentials/key.json
+      keyfile: /.google/credentials/key.json
       location: asia-southeast1
       method: service-account
       priority: interactive
       project: elite-bird-367213
       threads: 4
       type: bigquery
-  target: dev
+  target: prod
