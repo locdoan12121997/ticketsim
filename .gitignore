@@ -4,3 +4,4 @@ dbt_transform/dbt_packages/
 dbt_transform/logs/
 dbt_transform/dbt_packages/
 af/logs/
+*.pyc
