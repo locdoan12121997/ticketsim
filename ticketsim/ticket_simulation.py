@@ -94,6 +94,7 @@ def register_bus_arrival(time, bus_id, people_created):
     })
     producer.send('bus_arrival', event)
 
+
 def register_group_moving_from_bus_to_seller(people, walk_begin, walk_end, seller_line, queue_begin, queue_end,
                                              sale_begin, sale_end):
     wait = queue_end - queue_begin
@@ -198,159 +199,6 @@ def register_visitor_moving_to_scanner(person, walk_begin, walk_end, scanner_lin
     producer.send('scan_tickets', scan_tickets_event)
 
 
-# -------------------------
-#  UI/ANIMATION
-# -------------------------
-
-
-# main = tk.Tk()
-# main.title("Gate Simulation")
-# main.config(bg="#fff")
-# logo = tk.PhotoImage(file="images/LogoDattivo.png")
-# top_frame = tk.Frame(main)
-# top_frame.pack(side=tk.TOP, expand=False)
-# tk.Label(top_frame, image=logo, bg="#000007", height=65, width=1300).pack(side=tk.LEFT, expand=False)
-# canvas = tk.Canvas(main, width=1300, height=350, bg="white")
-# canvas.pack(side=tk.TOP, expand=False)
-
-# f = plt.Figure(figsize=(2, 2), dpi=72)
-# a3 = f.add_subplot(121)
-# a3.plot()
-# a1 = f.add_subplot(222)
-# a1.plot()
-# a2 = f.add_subplot(224)
-# a2.plot()
-# data_plot = FigureCanvasTkAgg(f, master=main)
-# data_plot.get_tk_widget().config(height=400)
-# data_plot.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
-
-
-# class QueueGraphics:
-#     text_height = 30
-#     icon_top_margin = -8
-#
-#     def __init__(self, icon_file, icon_width, queue_name, num_lines, canvas, x_top, y_top):
-#         self.icon_file = icon_file
-#         self.icon_width = icon_width
-#         self.queue_name = queue_name
-#         self.num_lines = num_lines
-#         self.canvas = canvas
-#         self.x_top = x_top
-#         self.y_top = y_top
-#
-#         self.image = tk.PhotoImage(file=self.icon_file)
-#         self.icons = defaultdict(lambda: [])
-#         for i in range(num_lines):
-#             canvas.create_text(x_top, y_top + (i * self.text_height), anchor=tk.NW, text=f"{queue_name} #{i + 1}")
-#         self.canvas.update()
-#
-#     def add_to_line(self, seller_number):
-#         count = len(self.icons[seller_number])
-#         x = self.x_top + 60 + (count * self.icon_width)
-#         y = self.y_top + ((seller_number - 1) * self.text_height) + self.icon_top_margin
-#         self.icons[seller_number].append(
-#             self.canvas.create_image(x, y, anchor=tk.NW, image=self.image)
-#         )
-#         self.canvas.update()
-#
-#     def remove_from_line(self, seller_number):
-#         if len(self.icons[seller_number]) == 0:
-#             return
-#         to_del = self.icons[seller_number].pop()
-#         self.canvas.delete(to_del)
-#         self.canvas.update()
-#
-#
-# def Sellers(canvas, x_top, y_top):
-#     return QueueGraphics("images/group.gif", 25, "Seller", SELLER_LINES, canvas, x_top, y_top)
-#
-#
-# def Scanners(canvas, x_top, y_top):
-#     return QueueGraphics("images/person-resized.gif", 18, "Scanner", SCANNER_LINES, canvas, x_top, y_top)
-#
-#
-# class BusLog:
-#     TEXT_HEIGHT = 24
-#
-#     def __init__(self, canvas, x_top, y_top):
-#         self.canvas = canvas
-#         self.x_top = x_top
-#         self.y_top = y_top
-#         self.bus_count = 0
-#
-#     def next_bus(self, minutes):
-#         x = self.x_top
-#         y = self.y_top + (self.bus_count * self.TEXT_HEIGHT)
-#         self.canvas.create_text(x, y, anchor=tk.NW, text=f"Next bus in {round(minutes, 1)} minutes")
-#         # self.bus_count = self.bus_count + 1
-#         self.canvas.update()
-#
-#     def bus_arrived(self, people):
-#         x = self.x_top + 135
-#         y = self.y_top + (self.bus_count * self.TEXT_HEIGHT)
-#         self.canvas.create_text(x, y, anchor=tk.NW, text=f"Arrived with {people} people", fill="green")
-#         self.bus_count = self.bus_count + 1
-#         self.canvas.update()
-#
-#
-# class ClockAndData:
-#     def __init__(self, canvas, x1, y1, x2, y2, time):
-#         self.x1 = x1
-#         self.y1 = y1
-#         self.x2 = x2
-#         self.y2 = y2
-#         self.canvas = canvas
-#         self.train = canvas.create_rectangle(self.x1, self.y1, self.x2, self.y2, fill="#fff")
-#         self.time = canvas.create_text(self.x1 + 10, self.y1 + 10, text="Time = " + str(round(time, 1)) + "m",
-#                                        anchor=tk.NW)
-#         self.seller_wait = canvas.create_text(self.x1 + 10, self.y1 + 40,
-#                                               text="Avg. Seller Wait  = " + str(avg_wait(seller_waits)), anchor=tk.NW)
-#         self.scan_wait = canvas.create_text(self.x1 + 10, self.y1 + 70,
-#                                             text="Avg. Scanner Wait = " + str(avg_wait(scan_waits)), anchor=tk.NW)
-#         self.canvas.update()
-#
-#     def tick(self, time):
-#         self.canvas.delete(self.time)
-#         self.canvas.delete(self.seller_wait)
-#         self.canvas.delete(self.scan_wait)
-#
-#         self.time = canvas.create_text(self.x1 + 10, self.y1 + 10, text="Time = " + str(round(time, 1)) + "m",
-#                                        anchor=tk.NW)
-#         self.seller_wait = canvas.create_text(self.x1 + 10, self.y1 + 30,
-#                                               text="Avg. Seller Wait  = " + str(avg_wait(seller_waits)) + "m",
-#                                               anchor=tk.NW)
-#         self.scan_wait = canvas.create_text(self.x1 + 10, self.y1 + 50,
-#                                             text="Avg. Scanner Wait = " + str(avg_wait(scan_waits)) + "m", anchor=tk.NW)
-#
-#         a1.cla()
-#         a1.set_xlabel("Time")
-#         a1.set_ylabel("Avg. Seller Wait (minutes)")
-#         a1.step([t for (t, waits) in seller_waits.items()], [np.mean(waits) for (t, waits) in seller_waits.items()])
-#
-#         a2.cla()
-#         a2.set_xlabel("Time")
-#         a2.set_ylabel("Avg. Scanner Wait (minutes)")
-#         a2.step([t for (t, waits) in scan_waits.items()], [np.mean(waits) for (t, waits) in scan_waits.items()])
-#
-#         a3.cla()
-#         a3.set_xlabel("Time")
-#         a3.set_ylabel("Arrivals")
-#         a3.bar([t for (t, a) in arrivals.items()], [a for (t, a) in arrivals.items()])
-#
-#         data_plot.draw()
-#         self.canvas.update()
-
-
-# bus_log = BusLog(canvas, 5, 20)
-# sellers = Sellers(canvas, 340, 20)
-# scanners = Scanners(canvas, 770, 20)
-# clock = ClockAndData(canvas, 1100, 260, 1290, 340, 0)
-
-
-# -------------------------
-#  SIMULATION
-# -------------------------
-
 def pick_shortest(lines):
     """
         Given a list of SimPy resources, determine the one with the shortest queue.
@@ -367,17 +215,6 @@ def pick_shortest(lines):
             shortest = i
             break
     return lines[shortest], shortest + 1
-
-
-# def create_clock(env):
-#     """
-#         This generator is meant to be used as a SimPy event to update the clock
-#         and the data in the UI
-#     """
-#
-#     while True:
-#         yield env.timeout(0.1)
-#         clock.tick(env.now)
 
 
 def bus_arrival(env, seller_lines, scanner_lines):

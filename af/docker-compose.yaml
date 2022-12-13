@@ -26,12 +26,12 @@ x-airflow-common:
 
     GCP_PROJECT_ID: elite-bird-367213
     GCP_GCS_BUCKET: ticketsim
-    BIGQUERY_DATASET: ticketsim
+    BIGQUERY_DATASET: bq_ticketsim
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
-    - ../dbt:/dbt
+    - ../dbt_transform:/dbt
     - ~/.google/credentials/:/.google/credentials:ro
     - ~/.dbt:/home/airflow/.dbt:ro
 
