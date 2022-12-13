@@ -44,5 +44,5 @@ In this project, I used 300$ free credit when create a new GCP account. The proj
 
 
 - Setup Kafka Compute Instance and start sending messages from Eventsim - [Setup](kafka/README.md)
-- Setup Spark Cluster for stream processing - [Setup](setup/spark.md)
+- Setup Spark Cluster for stream processing - [Setup](spark/README.md)
 - Setup Airflow on Compute Instance to trigger the hourly data pipeline - [Setup](setup/airflow.md)
