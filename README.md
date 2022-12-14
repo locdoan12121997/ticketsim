@@ -50,3 +50,7 @@ In this project, I used 300$ free credit when create a new GCP account. The proj
 - Setup Kafka Compute Instance and start sending messages from Eventsim - [Setup](kafka/README.md)
 - Setup Spark Cluster for stream processing - [Setup](spark/README.md)
 - Setup Airflow on Compute Instance to trigger the hourly data pipeline - [Setup](af/README.md)
+
+### Special Mentions
+
+I'd like to thank the [DataTalks.Club](https://datatalks.club) for offering this Data Engineering course for completely free. The course knowledge help me kickstart this project. I also want to thank [Ankur](https://github.com/ankurchavda) for his [streamify](https://github.com/ankurchavda/streamify). I copy a lot of his code and ideas to study the concepts in Data Engineering field.
