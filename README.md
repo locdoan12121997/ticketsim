@@ -1,5 +1,5 @@
 # Ticketsim
-A data pipeline with Kafka, Spark Streaming, dbt, Docker, Airflow, GCP and more
+A data pipeline with Kafka, Spark Streaming, dbt, Docker, Airflow, GCP and more.
 
 ## Description
 
@@ -15,7 +15,7 @@ Ticketsim is inspired by [article](https://towardsdatascience.com/simulating-rea
 
 - Cloud - [**Google Cloud Platform**](https://cloud.google.com)
 - Containerization - [**Docker**](https://www.docker.com), [**Docker Compose**](https://docs.docker.com/compose/)
-- Stream Processing - [**Kafka**](https://kafka.apache.org), [**Spark Streaming**](https://spark.apache.org/docs/latest/streaming-programming-guide.html)
+- Stream Processing - [**Kafka**](https://kafka.apache.org), [**Spark Structured Streaming**](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)
 - Orchestration - [**Airflow**](https://airflow.apache.org)
 - Transformation - [**dbt**](https://www.getdbt.com)
 - Data Lake - [**Google Cloud Storage**](https://cloud.google.com/storage)
@@ -29,7 +29,7 @@ Ticketsim is inspired by [article](https://towardsdatascience.com/simulating-rea
 
 ### Final Result
 
-You can watch the dashboard [here](https://datastudio.google.com/reporting/34d7baf7-507a-43fc-b678-bc0e8456e05b)
+You can watch the dashboard [here](https://datastudio.google.com/reporting/34d7baf7-507a-43fc-b678-bc0e8456e05b).
 
 ## Setup
 
@@ -37,12 +37,12 @@ In this project, I used 300$ free credit when create a new GCP account. The proj
 
 ### Pre-requisites
 
-- Google Cloud Platform. 
+- Google Cloud Platform
   - [GCP Account and Access Setup](setup/gcp.md)
 
 ### Action Parts
 
-
+- Setup GCP - [Setup](scripts/gcp.md)
 - Setup Kafka Compute Instance and start sending messages from Eventsim - [Setup](kafka/README.md)
 - Setup Spark Cluster for stream processing - [Setup](spark/README.md)
-- Setup Airflow on Compute Instance to trigger the hourly data pipeline - [Setup](setup/airflow.md)
+- Setup Airflow on Compute Instance to trigger the hourly data pipeline - [Setup](af/README.md)

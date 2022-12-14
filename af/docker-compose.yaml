@@ -24,9 +24,9 @@ x-airflow-common:
     GOOGLE_APPLICATION_CREDENTIALS: /.google/credentials/key.json
     AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: 'google-cloud-platform://?extra__google_cloud_platform__key_path=/.google/credentials/key.json'
 
-    GCP_PROJECT_ID: elite-bird-367213
-    GCP_GCS_BUCKET: ticketsim
-    BIGQUERY_DATASET: bq_ticketsim
+    GCP_PROJECT_ID: '${GCP_PROJECT_ID}'
+    GCP_GCS_BUCKET: '${GCP_GCS_BUCKET}'
+    BIGQUERY_DATASET: '${BIGQUERY_DATASET}'
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs

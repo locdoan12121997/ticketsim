@@ -5,6 +5,7 @@
 The ticketsim and kafka will run in two different docker process with architecture like above image. Ticketsim will publish events to port `9092` of kafka broker in the docker-composed containers of kafka.
 
 - Access to your kafka VM terminal
+
 - Clone git repo and cd to kafka folder
 
   ```bash
@@ -17,7 +18,7 @@ The ticketsim and kafka will run in two different docker process with architectu
   bash ~/ticketsim/scripts/vm_setup.sh && exec newgrp docker
   ```
 
-- Set the evironment variables. Kafka advertised listener need KAFKA_ADDRESS to return to kafka clients
+- Set the evironment variables. Kafka advertised listener need KAFKA_ADDRESS to return to kafka clients. If you don't set KAFKA_ADDRESS, Kafka will then write to localhost, which will not allow Spark to read messages.
 
   - External IP of the Kafka VM
 
