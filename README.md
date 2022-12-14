@@ -14,6 +14,7 @@ Ticketsim is inspired by [article](https://towardsdatascience.com/simulating-rea
 ### Tools & Technologies
 
 - Cloud - [**Google Cloud Platform**](https://cloud.google.com)
+- Infrastructure as Code software - [**Terraform**](https://www.terraform.io)
 - Containerization - [**Docker**](https://www.docker.com), [**Docker Compose**](https://docs.docker.com/compose/)
 - Stream Processing - [**Kafka**](https://kafka.apache.org), [**Spark Structured Streaming**](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)
 - Orchestration - [**Airflow**](https://airflow.apache.org)
@@ -39,10 +40,13 @@ In this project, I used 300$ free credit when create a new GCP account. The proj
 
 - Google Cloud Platform
   - [GCP Account and Access Setup](setup/gcp.md)
+- Terraform
+  - [Setup Terraform](https://developer.hashicorp.com/terraform/downloads)
 
 ### Action Parts
 
 - Setup GCP - [Setup](scripts/gcp.md)
+- Setup infrastructure using terraform - [Setup](terraform/README.md)
 - Setup Kafka Compute Instance and start sending messages from Eventsim - [Setup](kafka/README.md)
 - Setup Spark Cluster for stream processing - [Setup](spark/README.md)
 - Setup Airflow on Compute Instance to trigger the hourly data pipeline - [Setup](af/README.md)

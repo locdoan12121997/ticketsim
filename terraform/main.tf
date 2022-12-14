@@ -1,18 +1,17 @@
 terraform {
-  required_version = "3.5.0"
-  backend "local" {}
   required_providers {
     google = {
-      source = "hashicorp/google"
+      source  = "hashicorp/google"
+      version = "~> 4.0.0"
     }
   }
 }
 
 provider "google" {
-  project = var.project
-  region  = var.region
-  zone    = var.zone
-  credentials = file(var.credentials)  # Use this if you do not want to set env-var GOOGLE_APPLICATION_CREDENTIALS
+  project     = var.project
+  region      = var.region
+  zone        = var.zone
+  credentials = file(var.credentials) # Use this if you do not want to set env-var GOOGLE_APPLICATION_CREDENTIALS
 }
 
 
@@ -32,8 +31,8 @@ resource "google_compute_firewall" "port_rules" {
 
 }
 
-resource "google_compute_instance" "kafka_vm_instance" {
-  name                      = "streamify-kafka-instance"
+resource "google_compute_instance" "kafka_instance" {
+  name                      = "kafka-instance"
   machine_type              = "e2-standard-4"
   tags                      = ["kafka"]
   allow_stopping_for_update = true
@@ -53,8 +52,8 @@ resource "google_compute_instance" "kafka_vm_instance" {
 }
 
 
-resource "google_compute_instance" "airflow_vm_instance" {
-  name                      = "streamify-airflow-instance"
+resource "google_compute_instance" "airflow_instance" {
+  name                      = "airflow-instance"
   machine_type              = "e2-standard-4"
   allow_stopping_for_update = true
 
@@ -90,8 +89,8 @@ resource "google_storage_bucket" "bucket" {
 }
 
 
-resource "google_dataproc_cluster" "mulitnode_spark_cluster" {
-  name   = "streamify-multinode-spark-cluster"
+resource "google_dataproc_cluster" "singlenode_spark_cluster" {
+  name   = "singlenode-spark-cluster"
   region = var.region
 
   cluster_config {
@@ -117,11 +116,11 @@ resource "google_dataproc_cluster" "mulitnode_spark_cluster" {
     }
 
     worker_config {
-      num_instances = 2
-      machine_type  = "e2-medium"
-      disk_config {
-        boot_disk_size_gb = 30
-      }
+      num_instances = 0
+      // machine_type  = "e2-medium"
+      // disk_config {
+      //  boot_disk_size_gb = 30
+      // }
     }
 
     software_config {

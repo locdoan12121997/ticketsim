@@ -5,13 +5,13 @@ variable "project" {
 
 variable "region" {
   description = "Your project region"
-  default     = "us-central1"
+  default     = "asia-southeast1"
   type        = string
 }
 
 variable "zone" {
   description = "Your project zone"
-  default     = "us-central1-a"
+  default     = "asia-southeast1-b"
   type        = string
 }
 
@@ -40,13 +40,13 @@ variable "network" {
 
 variable "stg_bq_dataset" {
   description = "Storage class type for your bucket. Check official docs for more info."
-  default     = "streamify_stg"
+  default     = "ticketsim"
   type        = string
 }
 
 variable "prod_bq_dataset" {
   description = "Storage class type for your bucket. Check official docs for more info."
-  default     = "streamify_prod"
+  default     = "ticketsim_prod"
   type        = string
 }
 

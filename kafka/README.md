@@ -6,7 +6,7 @@ The ticketsim and kafka will run in two different docker process with architectu
 
 - Access to your kafka VM terminal
 
-- Clone git repo and cd to kafka folder
+- Clone git repo
 
   ```bash
   git clone https://github.com/locdoan12121997/ticketsim.git
