@@ -15,6 +15,11 @@ variable "zone" {
   type        = string
 }
 
+variable "credentials" {
+  description = "Your google credentials"
+  type        = string
+}
+
 variable "storage_class" {
   description = "Storage class type for your bucket"
   default     = "STANDARD"
